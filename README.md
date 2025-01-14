@@ -1,0 +1,2 @@
+# xiaobai_JavaScript
+一个初学者的JavaScript代码
