@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>controler日历</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function printCalendar(year, month) {
+            var firstday = new Date(year, month - 1, 1);
+            // return firstday;
+            var lastday = new Date(year, month, 0);
+
+            var Cday = new Date();//基准日期
+            var thisyear = Cday.getFullYear();
+            var thismonth = Cday.getMonth() + 1;
+            var thisdays = Cday.getDate();
+            // console.log('thismonth' + thismonth);
+
+
+            // console.log("cdays" + Cdays);
+            var days = lastday.getDate();
+            var day = firstday.getDay();
+            day = day === 0 ? 6 : day - 1;
+            // console.log(day);
+            // console.log(days);
+            console.log(`${year}年${month}月`);
+            var title = '一\t二\t三\t四\t五\t六\t日';
+            console.log(title);
+            var calendar = '';
+            for (var i = 0; i < day; i++) {
+                calendar += '\t';
+            };
+
+            for (var i = 1; i <= days; i++) {
+
+                if (i == thisdays && year == thisyear && month == thismonth) {
+
+                    calendar += i + ']\t';
+                } else {
+                    calendar += i + '\t';
+
+                }
+
+                if ((day + i) % 7 === 0) {
+                    calendar += '\n';
+                }
+            };
+            console.log(calendar);//输出拼接字符串
+            console.log(`今天 ${thisyear}年${thismonth}月${thisdays}日`);
+            console.log(']代表基准日期&当天日期');
+            console.log('--------------------------');
+ 
+        }
+        // console.log(printCalendar(2025,1));
+        printCalendar(2025, 1);
+
+    </script>
+</body>
+
+</html>
